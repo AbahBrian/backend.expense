@@ -8,6 +8,12 @@ const TransactionRouter = require('./routes/transactionRoute')
 const budgetRouter = require('./routes/budgetRoute')
 const bodyParser = require('body-parser');
 
+app.use(cors({
+    origin:'http://localhost:3000',
+    credentials:true,
+    optionSuccessStatus:200
+}))
+
 app.get('/', (request, response) => {
     response.send('Hello World')
 })
@@ -17,11 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/api', UserRouter)
 app.use('/api',TransactionRouter)
 app.use('/api',budgetRouter)
-app.use(cors(({
-    origin:'http://localhost:3000',
-    credentials:true,
-    optionSuccessStatus:200
-})))
+
 
 app.listen(port, () => {
     console.log(`Server is Listening on http://localhost:${port}`)
