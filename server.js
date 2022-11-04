@@ -9,7 +9,7 @@ const budgetRouter = require('./routes/budgetRoute')
 const bodyParser = require('body-parser');
 
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:'https://abahexpense.netlify.app',
     credentials:true,
     optionSuccessStatus:200
 }))
